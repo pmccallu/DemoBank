@@ -12,7 +12,7 @@ export default function CreateAccount() {
   const { accounts, setAccounts } = useContext(AccountContext);
   const { user, setUser } = useContext(UserContext);
   const [success, setSuccess] = useState(false);
-  const [show] = useState(true);
+  const [show, setShow] = useState(true);
 
   const initialValues = {
     name: "",
@@ -22,6 +22,7 @@ export default function CreateAccount() {
 
   function clearForm() {
     formik.resetForm({ values: "" });
+    setShow(true);
   }
 
   const validationSchema = Yup.object({
