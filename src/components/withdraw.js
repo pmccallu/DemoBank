@@ -39,6 +39,8 @@ export default function Withdraw() {
     onSubmit(values, { resetForm }) {
       // check for errors
       if (formik.errors.withdraw) return;
+            if (values.withdraw > user.balance) return;
+
       const amount = parseInt(formik.values.withdraw);
       updateAccount(amount);
       resetForm({ values: "" });
